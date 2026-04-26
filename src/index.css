@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-pink: #f0a1bf;
+    --brand-purple: #9d8ec3;
+    --brand-secondary: #86d3ff;
+    --brand-bg: #fdf6f9;
+  }
+
+  body {
+    @apply bg-brand-bg text-slate-900 font-sans overflow-hidden h-screen antialiased;
+    background: linear-gradient(135deg, #fdf6f9 0%, #f5f3ff 100%);
+    line-height: 1.75;
+    letter-spacing: 0.025em;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(157, 142, 195, 0.2);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(157, 142, 195, 0.4);
+  }
+}
+
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-white/50 shadow-xl shadow-indigo-100/20;
+}
+
+.card-panel {
+  @apply bg-white/40 backdrop-blur-sm border border-white/60 rounded-3xl p-4 shadow-sm;
+}
+
+.markdown-body {
+  @apply text-[16px] sm:text-[17px] text-slate-700 font-serif;
+  line-height: 1.9;
+}
+
+.markdown-body p {
+  @apply mb-6 tracking-normal;
+  text-indent: 0;
+}
+
+.markdown-body strong {
+  @apply font-black text-slate-900 font-sans;
+}
+
+.markdown-body em {
+  @apply text-brand-purple font-bold not-italic font-sans;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  @apply font-black mt-10 mb-6 text-slate-900 tracking-tight font-sans;
+}
+
+.markdown-body h3 {
+  @apply text-lg border-l-4 border-brand-pink pl-4 py-1 bg-brand-pink/5 rounded-r-lg;
+}
+
+.markdown-body ul, .markdown-body ol {
+  @apply mb-6 space-y-2 pl-6;
+}
+
+.markdown-body li {
+  @apply leading-relaxed;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-brand-pink/40 pl-6 py-2 italic text-slate-500 my-6 bg-brand-pink/5 rounded-r-xl;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
