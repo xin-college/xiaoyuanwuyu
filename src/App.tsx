@@ -445,6 +445,7 @@ ${getGameStateContext(tempState)}`;
       stats,
       history: [] // Reset history for new game
     }));
+    setIsInitialized(true); // Set initialized here so they can "Continue" if they accidentally leave
     setCurrentScreen('game');
     initGame(profile, stats);
   };
@@ -497,7 +498,7 @@ ${getGameStateContext(tempState)}`;
             onAchievements={() => setCurrentScreen('achievement')} 
             onLoad={() => setCurrentScreen('load')} 
             onContinue={() => setCurrentScreen('game')}
-            canContinue={isInitialized}
+            canContinue={isInitialized || (gameState.profile.name !== "")}
             hasApiKey={!!settings.apiKey}
           />
         )}
